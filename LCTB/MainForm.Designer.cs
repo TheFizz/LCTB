@@ -40,6 +40,7 @@ namespace LCTB
             this.label3 = new System.Windows.Forms.Label();
             this.processBtn = new System.Windows.Forms.Button();
             this.infoLabel = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // label1
@@ -132,11 +133,23 @@ namespace LCTB
             this.infoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.infoLabel.Visible = false;
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(296, 72);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(59, 13);
+            this.linkLabel1.TabIndex = 10;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "By TheFizz";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkClicked);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(363, 74);
+            this.ClientSize = new System.Drawing.Size(363, 90);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.infoLabel);
             this.Controls.Add(this.processBtn);
             this.Controls.Add(this.label3);
@@ -170,6 +183,7 @@ namespace LCTB
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button processBtn;
         private System.Windows.Forms.Label infoLabel;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 

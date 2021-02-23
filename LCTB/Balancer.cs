@@ -32,6 +32,8 @@ namespace LCTB
 
             for (int i = 0; i < names.Length; i++)
             {
+                if (string.IsNullOrEmpty(names[i].Trim()))
+                    continue;
                 ProgressUpdate?.Invoke($"{names[i]} ({i + 1}/{names.Length})");
                 var summoner = await GetSummoner(names[i], server);
 
@@ -40,16 +42,6 @@ namespace LCTB
                 else
                     summoners.Add(summoner);
             }
-            /*
-            List<string> outStrings = new List<string>();
-            foreach (var summoner in summoners)
-            {
-                var outString = $"{summoner.Name} = {summoner.Elo} ELO.";
-                if (!string.IsNullOrEmpty(summoner.Info))
-                    outString += $" ({summoner.Info})";
-                outStrings.Add(outString);
-            }
-            */
 
             ProgressUpdate?.Invoke($"Balancing...");
 
@@ -148,7 +140,7 @@ namespace LCTB
                 var summoner = summoners.Pop();
                 int index = 0;
                 teamsList = teamsList.OrderBy(t => t.Summoners.Sum(s => s.Elo)).ToList();
-                while (teamsList[index].Summoners.Count == 5)//&& teamsList[index].Summoners.Sum(s => s.Elo) >= median
+                while (teamsList[index].Summoners.Count == 5 && teamsList[index].Summoners.Sum(s => s.Elo) >= median)
                 {
                     index++;
                 }

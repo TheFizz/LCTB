@@ -76,6 +76,8 @@ namespace LCTB
 
             foreach (Control cnt in this.Controls)
             {
+                if (cnt is LinkLabel)
+                    continue;
                 cnt.Enabled = false;
             }
             processBtn.Visible = false;
@@ -101,6 +103,11 @@ namespace LCTB
                 infoLabel.Invoke((MethodInvoker)delegate { infoLabel.Text = message; });
             else
                 infoLabel.Text = message;
+        }
+
+        private void LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.reddit.com/user/TheFizz94");
         }
     }
 }
